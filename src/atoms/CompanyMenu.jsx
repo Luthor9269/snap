@@ -1,11 +1,10 @@
 import { React, useState } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { Link } from "react-router-dom";
-import "../app.css";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-function FeaturesMenus() {
+function CompanyMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const open = Boolean(anchorEl);
@@ -18,43 +17,39 @@ function FeaturesMenus() {
     setAnchorEl(null);
   };
   return (
-    <>
-      {/* <ReusableButton id="features-button" ariaControl="features-menu" name="Features" handleClick={handleClick} anchorEl={anchorEl} setAnchorEl={setAnchorEl} /> */}
+    <div>
       <Button
-        id="features-button"
+        id="company-button"
         onClick={handleClick}
-        aria-control={open ? "features-menu" : undefined}
+        aria-control={open ? "company-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         color="inherit"
-        endIcon={open ? <KeyboardArrowUpIcon/>:  <KeyboardArrowDownIcon />}
+        endIcon={open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
       >
-        Features
+        Company
       </Button>
       <Menu
-        id="features-menu"
+        id="company-menu"
         anchorEl={anchorEl}
         open={open}
         MenuListProps={{
-          "aria-labelledby": "features-button",
+          "aria-labelledby": "company-button",
         }}
         onClose={handleClose}
       >
-        <MenuItem component={Link} to={"/todolist"}>
-          Todo list
+        <MenuItem component={Link} to={"/history"}>
+          History
         </MenuItem>
-        <MenuItem component={Link} to={"/calender"}>
-          Calender
+        <MenuItem component={Link} to={"/ourteam"}>
+          Our Team
         </MenuItem>
-        <MenuItem component={Link} to={"/reminders"}>
-          Reminders
-        </MenuItem>
-        <MenuItem component={Link} to={"/planning"}>
-          Planning
+        <MenuItem component={Link} to={"/blog"}>
+          Blog
         </MenuItem>
       </Menu>
-    </>
+    </div>
   );
 }
 
-export default FeaturesMenus;
+export default CompanyMenu;
