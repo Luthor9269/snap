@@ -24,7 +24,7 @@ function CompanyMenu() {
         aria-control={open ? "company-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        color="inherit"
+        // color="inherit"
         endIcon={open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
       >
         Company
