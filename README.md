@@ -5,7 +5,7 @@ Snap is a front-end responsive react website that was created with Material UI.
 # How to run
 
 1. Git clone locally using the link https://github.com/Luthor9269/snap.git
-2. _Npm install dependancies_
+2. _Npm install_ dependancies
 3. _Npm run dev_ to start
 4. The App runs on http://localhost:5173/ (You could also ctrl + left click) on the terminal on the link that pop ups to open a browser tab to view the application
 
