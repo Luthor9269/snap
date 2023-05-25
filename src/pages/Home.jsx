@@ -1,38 +1,85 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { Box, Stack, Typography, Button } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  Button,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import heroDesktopImage from "../images/image-hero-desktop.png";
 import dataBizImage from "../images/client-databiz.svg";
 import audiophileImage from "../images/client-audiophile.svg";
 import meetImage from "../images/client-meet.svg";
 import makerImage from "../images/client-maker.svg";
+import heroMobileImage from "../images/image-hero-mobile.png";
 
 function Home() {
+  const theme = useTheme();
+  const match = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <>
       <Navbar />
       <Stack
         direction={{ xs: "column-reverse", sm: "row" }}
-        spacing={{ xs: 1, sm: 2, md: 4 }}
-        sx={{width:"100vw", height:"100vh"}}
+        spacing={{ xs: 1, sm: 2 }}
+        alignItems={"center"}
+        justifyContent={"center"}
       >
-        <Stack sx={{width:"40%"}}>
-          <Typography sx={{ fontSize: "4rem" }}>Make Remote Work</Typography>
-          <Typography sx={{ fontSize: 30 }}>
+        <Stack
+          sx={{
+            width: {
+              xs: "80%",
+              md: "40%",
+            },
+            justifyItems: "space-around",
+          }}
+          spacing={4}
+        >
+          <Typography
+            sx={{
+              fontSize: "4rem",
+              color: theme.palette.primary.main,
+              fontWeight: theme.typography.fontWeightRegular,
+            }}
+          >
+            Make Remote Work
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "1.7rem",
+              color: theme.palette.primary.light,
+              fontWeight: theme.typography.fontWeightLight,
+            }}
+          >
             Get your team in sync, no matter your location. Streamline
             processes, create team rituals, and watch productivity soar.
           </Typography>
-          <Button variant="outlined" sx={{ backgroundColor: "black" }}>
+          <Button
+            variant="outlined"
+            sx={{
+              backgroundColor: "black",
+              width: "40%",
+              borderRadius: "10px",
+              color: theme.palette.secondary.main,
+              fontWeight: theme.typography.fontWeightRegular
+            }}
+          >
             Learn More
           </Button>
-          <Stack direction="row" justifyContent="space-evenly" >
+          <Stack direction="row" justifyContent="space-evenly" spacing={5}>
             <Box component="img" src={dataBizImage} />
             <Box component="img" src={audiophileImage} />
             <Box component="img" src={meetImage} />
             <Box component="img" src={makerImage} />
           </Stack>
         </Stack>
-        <Box component="img" src={heroDesktopImage} sx={{width:"60%"}} />
+        {match ? (
+          <Box component="img" src={heroMobileImage} sx={{ width: "95%" }} />
+        ) : (
+          <Box component="img" src={heroDesktopImage} sx={{ width: "450px" }} />
+        )}
       </Stack>
     </>
   );

@@ -18,7 +18,7 @@ function Navbar() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <AppBar sx={{ background: "0, 0%, 98%" }} style={{ position: "static" }}>
+    <AppBar sx={{ background: "0, 0%, 98%" }} style={{ position: "static" }} elevation={0}>
       <Toolbar>
         <Box component="img" alt="Your logo" src={Logo} />
         {match ? (
@@ -27,7 +27,7 @@ function Navbar() {
           <>
             <FeaturesMenus />
             <CompanyMenu />
-            <Button textcolor="0, 0%, 41%" component={Link} to="/careers">
+            <Button component={Link} to="/careers">
               Careers
             </Button>
             <Button textcolor="0, 0%, 41%" component={Link} to="/about">
