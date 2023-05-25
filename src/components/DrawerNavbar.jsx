@@ -7,24 +7,30 @@ import {
   ListItemText,
 } from "@mui/material";
 
+// Components used for drawer
 import FeaturesCollapse from "../atoms/FeaturesCollapse";
 import CompanyCollapse from "../atoms/CompanyCollapse";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 function DrawerNavBar() {
+  // Two different States for feature and company collapsable list
   const [featuresOpen, setfeaturesOpen] = useState(false);
   const [companyOpen, setcompanyOpen] = useState(false);
-  //Handling click to open collapse menu
+  //Toggle features collapse menu
   const handleFeaturesClick = () => {
     setfeaturesOpen(!featuresOpen);
   };
+  //Toggle company collapse menu
   const handleCompanyClick = () => {
     setcompanyOpen(!companyOpen);
   };
+
   return (
     <div>
+      {/* Main list housing items */}
       <List>
+        {/* Individual Items */}
         <ListItem>
           <ListItemButton onClick={handleFeaturesClick}>
             <ListItemText>Features</ListItemText>
@@ -37,8 +43,10 @@ function DrawerNavBar() {
             </ListItemIcon>
           </ListItemButton>
         </ListItem>
+        {/* Feature Collapse component. Passing featuresOpen state as prop */}
         <FeaturesCollapse open={featuresOpen} />
         <ListItem>
+          {/* On Click changes state and opens collapseable menu */}
           <ListItemButton onClick={handleCompanyClick}>
             <ListItemText>Company </ListItemText>
             <ListItemIcon>

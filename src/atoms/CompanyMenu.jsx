@@ -1,12 +1,13 @@
 import { React, useState } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { Link } from "react-router-dom";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 function CompanyMenu() {
+  // AnchorEl is used to open and close features menu
+  // Used same naming convention as features menu to avoid confusion
   const [anchorEl, setAnchorEl] = useState(null);
-
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {

@@ -1,8 +1,8 @@
-import {React} from 'react'
-import { Collapse, ListItemButton, ListItemText } from '@mui/material'
+import { React } from "react";
+import { Collapse, ListItemButton, ListItemText } from "@mui/material";
 
 function CompanyCollapse(props) {
-  const {open} = props
+  const { open } = props;
 
   return (
     <div>
@@ -16,9 +16,9 @@ function CompanyCollapse(props) {
         <ListItemButton>
           <ListItemText>Blog</ListItemText>
         </ListItemButton>
-        </Collapse>
+      </Collapse>
     </div>
-  )
+  );
 }
 
-export default CompanyCollapse
+export default CompanyCollapse;

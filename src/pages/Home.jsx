@@ -8,6 +8,8 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
+
+// Images to be imported for use in home page
 import heroDesktopImage from "../images/image-hero-desktop.png";
 import dataBizImage from "../images/client-databiz.svg";
 import audiophileImage from "../images/client-audiophile.svg";
@@ -16,17 +18,23 @@ import makerImage from "../images/client-maker.svg";
 import heroMobileImage from "../images/image-hero-mobile.png";
 
 function Home() {
+  // Creating use theme object to use for queries
+  // useMediaQueries checks if screen size is less than "sm"
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <>
+      {/* Navbar component created in another file */}
       <Navbar />
+      {/* Main Stack houses image and text  */}
       <Stack
         direction={{ xs: "column-reverse", sm: "row" }}
         spacing={{ xs: 1, sm: 2 }}
         alignItems={"center"}
         justifyContent={"center"}
       >
+        {/* Secondary Stack houses Text and bottom links */}
         <Stack
           sx={{
             width: {
@@ -63,11 +71,12 @@ function Home() {
               width: "40%",
               borderRadius: "10px",
               color: theme.palette.secondary.main,
-              fontWeight: theme.typography.fontWeightRegular
+              fontWeight: theme.typography.fontWeightRegular,
             }}
           >
             Learn More
           </Button>
+          {/* Last stack houses Link images */}
           <Stack direction="row" justifyContent="space-evenly" spacing={5}>
             <Box component="img" src={dataBizImage} />
             <Box component="img" src={audiophileImage} />
@@ -75,6 +84,7 @@ function Home() {
             <Box component="img" src={makerImage} />
           </Stack>
         </Stack>
+        {/* Rending different images based on useMediaQuery results. If screen size is sm render mobile */}
         {match ? (
           <Box component="img" src={heroMobileImage} sx={{ width: "95%" }} />
         ) : (

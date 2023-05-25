@@ -4,6 +4,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import DrawerNavBar from "./DrawerNavbar";
 
 // List is used here as Menu is intended for transient use(on modals or popups)
+// Drawer component that is placed in navbar.
+// This file handles opening and closing of drawer as well as houses the actual drawer
 
 function DrawerComp() {
   const [openDrawer, setopenDrawer] = useState(false);
